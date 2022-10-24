@@ -1,8 +1,7 @@
 <?php
 session_start();
 include_once("conexao.php");
-/* include("header.php");
-require("includes/sessao.php"); */
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -20,7 +19,7 @@ require("includes/sessao.php"); */
   $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
   if (!empty($dados['CadUsuario'])) {
-    var_dump($dados);
+    //var_dump($dados);
 
     //palavra chave para acessar a tabela.
     $query_usuario = "INSERT INTO cadastros (nome, email) VALUES ('" . $dados["nome"] . "', '" . $dados["email"] . "')";
