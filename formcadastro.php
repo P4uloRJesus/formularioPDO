@@ -1,24 +1,53 @@
 <?php
 session_start();
 include_once("conexao.php");
-
+$title = "Formulario Cadastro";
+include("include/header.php");
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
+  
+  <div>
+  <link rel="stylesheet" href="styles/global.css">
+<nav class="navbar navbar-expand-lg bg-light">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="index.php">Listar</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="http://localhost/phpmyadmin/sql.php?db=celke&table=usuarios&pos=0 " target="_blank">Banco de Dados</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="formcadastro.php">formulario</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+						#
+					</a>
+					<div class="dropdown-menu">
+					<a class="dropdown-item" href="#"></a>
+					<a class="dropdown-item" href="#"></a>
+					 <a class="dropdown-item" href="#"></a> 
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
 
-<head>
-  <meta charset="UTF-8">
 
-  <title>Cadastro</title>
-</head>
-
-<body>
   <h1>Formulario de Cadastro PDO</h1>
-  <a href="../formulario-cadastro">Home</a><br><br>
   <?php
+
+  //Receber os dados do formulário
   $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
   $dadosVal = [];
 
+  //Verificar se o usário clicou no botão
   if (!empty($dados['CadUsuario'])) {
     unset($dados['CadUsuario']);
     var_dump($dados);
