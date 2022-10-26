@@ -46,10 +46,15 @@ include("include/header.php");
 	//Receber o numero da pagina
 	$pagina_atual = filter_input(INPUT_GET, "page", FILTER_SANITIZE_NUMBER_INT);
 	$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-	var_dump($pagina);
+	//var_dump($pagina);
+	if(isset($_SESSION['msg'])) {
+
+		echo $_SESSION['msg'];
+		unset($_SESSION['msg']);
+	}
 
 	//Setar a quantidade de registros por pagina 
-	$limite_resultado = 1;
+	$limite_resultado = 3;
 
 	//Calcular o inicio da visualização
 	$inicio = ($limite_resultado * $pagina) - $limite_resultado;
@@ -67,7 +72,9 @@ include("include/header.php");
 			extract($row_usuario);
 			echo "ID: $id <br>";
 			echo "Nome: $nome <br>";
-			echo "E-mail: $email <br>";
+			echo "E-mail: $email <br><br>";
+			echo "<a href='visualizar.php?id=$id'>Visualizar</a><br>";
+			echo "<a href='editar.php?id=$id'>Editar</a><br>";
 			echo "<hr>";
 		}
 
