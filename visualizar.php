@@ -8,9 +8,9 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 //var_dump($id);
 
-if (empty($id)) {        /* Validação para ver se o ID existe.Caso não exista, volta
+if (empty($id)) {       /* Validação para ver se o ID existe.Caso não exista, volta
                         para a pagina do listar */
-  $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário não encontrado!</p>";
+  $_SESSION['msg'] = "<p style='color: red;'>Erro: Usuário não encontrado!</p>";
   header("location: index.php");
   exit();
 }
@@ -43,7 +43,7 @@ if (empty($id)) {        /* Validação para ver se o ID existe.Caso não exista
     echo "Nome: $nome <br>";
     echo "E-mail: $email <br>";
   } else {
-    $_SESSION['msg'] = "<p style='color: #f00;'>Erro: Usuário não encontrado!</p>";
+    $_SESSION['msg'] = "<p style='color: red;'>Erro: Usuário não encontrado!</p>";
     header("location: index.php");
     exit();
   }

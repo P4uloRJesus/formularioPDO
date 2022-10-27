@@ -19,7 +19,7 @@ include("include/header.php");
 						<a class="nav-link active" aria-current="page" href="index.php">Listar</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="http://localhost/phpmyadmin/sql.php?db=celke&table=usuarios&pos=0 " target="_blank">Banco de Dados</a>
+						<a class="nav-link" href="http://localhost/phpmyadmin/sql.php?server=1&db=celke&table=cadastros&pos=0 " target="_blank">Banco de Dados</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="formcadastro.php">formulario</a>
@@ -47,14 +47,14 @@ include("include/header.php");
 	$pagina_atual = filter_input(INPUT_GET, "page", FILTER_SANITIZE_NUMBER_INT);
 	$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
 	//var_dump($pagina);
-	if(isset($_SESSION['msg'])) {
+	if (isset($_SESSION['msg'])) {
 
 		echo $_SESSION['msg'];
 		unset($_SESSION['msg']);
 	}
 
 	//Setar a quantidade de registros por pagina 
-	$limite_resultado = 3;
+	$limite_resultado = 5;
 
 	//Calcular o inicio da visualização
 	$inicio = ($limite_resultado * $pagina) - $limite_resultado;
@@ -75,6 +75,7 @@ include("include/header.php");
 			echo "E-mail: $email <br><br>";
 			echo "<a href='visualizar.php?id=$id'>Visualizar</a><br>";
 			echo "<a href='editar.php?id=$id'>Editar</a><br>";
+			echo "<a href='apagar.php?id=$id'>Apagar</a><br>";
 			echo "<hr>";
 		}
 

@@ -10,7 +10,7 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 if (empty($id)) {        /* Validação para ver se o ID existe.Caso não exista, volta
                         para a pagina do listar */
-  $_SESSION['msg'] = "<div alert alert-danger>Erro: Usuário não encontrado!</div>";
+  $_SESSION['msg'] = "<p style='color: red;'>Erro: Usuário não encontrado!</p>";
   header("location: index.php");
   exit();
 }
@@ -24,7 +24,7 @@ if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
   //var_dump($row_usuario);
   extract($row_usuario);
 } else {
-  $_SESSION['msg'] = "<div alert alert-danger>Erro: Usuário não encontrado!</div>";
+  $_SESSION['msg'] = "<p style='color: red;'>Erro: Usuário não encontrado!</p>";
   header("Location: index.php");
   exit();
 }
@@ -51,7 +51,7 @@ if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
             <a class="nav-link active" aria-current="page" href="index.php">Listar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost/phpmyadmin/sql.php?db=celke&table=usuarios&pos=0 " target="_blank">Banco de Dados</a>
+            <a class="nav-link" href="http://localhost/phpmyadmin/sql.php?server=1&db=celke&table=cadastros&pos=0" target="_blank">Banco de Dados</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="formcadastro.php">formulario</a>
@@ -84,10 +84,10 @@ if (($result_usuario) and ($result_usuario->rowCount() != 0)) {
     $dados = array_map('trim', $dados);
     if (in_array("", $dados)) {
       $empty_input = true;
-      echo "<div alert alert-danger>Erro: Necessário preencher todos campos!</div>";
+      echo "<p style='color: red;'>Erro: Necessário preencher todos campos!</p>";
     } elseif (!filter_var($dados['email'], FILTER_VALIDATE_EMAIL)) {
       $empty_input = true;
-      echo "<div alert alert-danger>Erro: Necessário preencher com e-mail valido!</div>";
+      echo "<p style='color: red;'>Erro: Necessário preencher com e-mail valido!</p>";
     }
 
     if (!$empty_input) {
