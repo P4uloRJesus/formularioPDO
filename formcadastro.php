@@ -19,7 +19,7 @@ include("include/header.php");
             <a class="nav-link active" aria-current="page" href="index.php">Listar</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://localhost/phpmyadmin/sql.php?db=celke&table=usuarios&pos=0 " target="_blank">Banco de Dados</a>
+            <a class="nav-link" href="http://localhost/phpmyadmin/sql.php?server=1&db=celke&table=cadastros&pos=0" target="_blank">Banco de Dados</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="formcadastro.php">formulario</a>
